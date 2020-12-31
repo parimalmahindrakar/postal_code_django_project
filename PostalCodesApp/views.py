@@ -9,7 +9,7 @@ def getCode(request,code_):
     code_ = PostalCodes.objects.filter(code=code_)
     data = {'data':{}}
     for i in code_:
-        data['data'].update({i.area:i.code})
+        data['data'].update({i.area:i.code,'city':i.city,'state':i.state})
     if len(code_) == 0:
         return JsonResponse({"data":"NO"})
     else:
